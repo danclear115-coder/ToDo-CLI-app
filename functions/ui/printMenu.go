@@ -7,6 +7,7 @@ import (
 )
 
 func menuItem(width int, key, text string) {
+	
 	content := fmt.Sprintf("%s -> %s", key, text)
 	fmt.Printf("%s│%s %s%s%s %s│%s\n",
 		taskFunc.Cyan, taskFunc.Reset,

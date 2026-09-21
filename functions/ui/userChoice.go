@@ -6,7 +6,7 @@ import (
 )
 
 func UserChoice(choice string) {
-	
+
 	switch choice {
 		case "0":
 			taskFunc.GetTasks()
