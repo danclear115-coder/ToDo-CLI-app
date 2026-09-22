@@ -7,7 +7,7 @@ import (
 )
 
 func menuItem(width int, key, text string) {
-	
+
 	content := fmt.Sprintf("%s -> %s", key, text)
 	fmt.Printf("%s│%s %s%s%s %s│%s\n",
 		taskFunc.Cyan, taskFunc.Reset,
@@ -26,6 +26,7 @@ func PrintMenu() {
 	menuItem(w, "3", "Переключить статус")
 	menuItem(w, "4", "Удалить задачу")
 	menuItem(w, "5", "Показать активные задачи")
-	menuItem(w, "6", "Выход")
+	menuItem(w, "6", "Показать выполненные задачи")
+	menuItem(w, "7", "Выход")
 	fmt.Printf("%s└%s┘%s\n", taskFunc.Cyan, strings.Repeat("─", w), taskFunc.Reset)
 }

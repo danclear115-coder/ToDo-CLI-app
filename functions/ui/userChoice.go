@@ -21,6 +21,8 @@ func UserChoice(choice string) {
 		case "5":
 			taskFunc.GetUncompletedTasks()
 		case "6":
+			taskFunc.GetCompletedTasks()
+		case "7":
 			fmt.Printf("\n%s[!] Соединение закрыто. Пока!%s\n", taskFunc.Green, taskFunc.Reset)
 			return
 		default:
