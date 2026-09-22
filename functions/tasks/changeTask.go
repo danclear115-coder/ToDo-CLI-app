@@ -6,6 +6,7 @@ import (
 )
 
 func ChangeTask() {
+	
 	width := BoxTop("ИЗМЕНЕНИЕ ЗАДАЧИ", Cyan)
 
 	taskId, ok := AskID(width, Cyan)
