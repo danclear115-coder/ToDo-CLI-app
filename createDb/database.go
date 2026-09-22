@@ -92,6 +92,14 @@ func GetUncompletedTasks() ([]Task, error) {
 
 }
 
+func GetCompletedTasks() ([]Task, error) {
+
+	var completedTasks []Task
+	result := DB.Where("is_completed", true).Find(&completedTasks)
+	return completedTasks, result.Error
+
+}
+
 func CompleteTask(id uint) error {
 
 	if err := IdCheck(id); err != nil {
@@ -110,6 +118,7 @@ func CompleteTask(id uint) error {
 }
 
 func GetTasksOldParams(id uint) (taskOldParams Task, dbError error) {
+	
 	if err := IdCheck(id); err != nil {
 		dbError = err
 		return taskOldParams, dbError
