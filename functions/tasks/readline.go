@@ -12,24 +12,34 @@ import (
 var stdin = bufio.NewReader(os.Stdin)
 
 func ReadLine(prompt string) string {
+	return ReadLineWithDefault(prompt, "")
+}
+
+func ReadLineWithDefault(prompt, initial string) string {
 	fd := int(os.Stdin.Fd())
 
 	if !term.IsTerminal(fd) {
-		fmt.Print(prompt)
+		fmt.Print(prompt + initial)
 		s, _ := stdin.ReadString('\n')
-		return strings.TrimSpace(s)
+		if trimmed := strings.TrimSpace(s); trimmed != "" {
+			return trimmed
+		}
+		return initial
 	}
 
 	oldState, err := term.MakeRaw(fd)
 	if err != nil {
-		fmt.Print(prompt)
+		fmt.Print(prompt + initial)
 		s, _ := stdin.ReadString('\n')
-		return strings.TrimSpace(s)
+		if trimmed := strings.TrimSpace(s); trimmed != "" {
+			return trimmed
+		}
+		return initial
 	}
 	defer term.Restore(fd, oldState)
 
-	var buf []rune
-	pos := 0
+	buf := []rune(initial)
+	pos := len(buf)
 
 	redraw := func() {
 		fmt.Printf("\r\033[K%s%s", prompt, string(buf))
