@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -106,6 +107,16 @@ func CompleteTask(id uint) error {
 
 	result := DB.Model(&Task{}).Where("id = ?", id).Update("IsCompleted", !currentTaskIsCompleted)
 	return result.Error
+}
+
+func GetTasksOldParams(id uint) (taskOldParams Task, dbError error) {
+	if err := IdCheck(id); err != nil {
+		dbError = err
+		return taskOldParams, dbError
+	}
+
+	dbError = DB.Where("id = ?", id).First(&taskOldParams).Error
+	return taskOldParams, dbError
 }
 
 func ChangeTask(title string, content string, priority string, id uint) error {
