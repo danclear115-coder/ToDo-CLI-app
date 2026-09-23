@@ -24,6 +24,7 @@ func ReadPassword(prompt string) string {
 }
 
 func readLineInternal(prompt, initial string, mask bool) string {
+
 	fd := int(os.Stdin.Fd())
 
 	if !term.IsTerminal(fd) {
@@ -153,4 +154,5 @@ func readLineInternal(prompt, initial string, mask bool) string {
 	}
 
 	return strings.TrimSpace(string(buf))
+	
 }

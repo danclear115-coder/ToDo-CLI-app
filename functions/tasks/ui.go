@@ -28,6 +28,7 @@ const (
 )
 
 func TermWidth() int {
+
 	w, _, err := term.GetSize(int(os.Stdout.Fd()))
 	if err != nil || w <= 0 {
 		w = defTermWidth
@@ -42,6 +43,7 @@ func TermWidth() int {
 }
 
 func FormWidth() int {
+	
 	w := TermWidth() - 4
 	if w > 92 {
 		w = 92
@@ -53,6 +55,7 @@ func FormWidth() int {
 }
 
 func WrapText(s string, width int) []string {
+
 	if width < 1 {
 		width = 1
 	}

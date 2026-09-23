@@ -6,6 +6,7 @@ import (
 )
 
 func CreateTask() {
+	
 	width := BoxTop("НОВАЯ ЗАДАЧА", Green)
 
 	title := ReadLine(BoxPrompt(Green, "Заголовок: "))

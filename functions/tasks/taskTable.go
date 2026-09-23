@@ -28,6 +28,7 @@ func priorityColor(priority string) string {
 }
 
 func renderTaskList(tasks []database.Task, emptyTitle, emptyText string) {
+	
 	if len(tasks) == 0 {
 		w := BoxTop(emptyTitle, Yellow)
 		BoxLine(w, Yellow, Yellow, emptyText)

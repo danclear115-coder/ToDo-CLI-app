@@ -7,6 +7,7 @@ import (
 )
 
 func DeleteTask() {
+	
 	width := BoxTop("УДАЛЕНИЕ ЗАДАЧИ", Red)
 	BoxLine(width, Red, Yellow, "Внимание: действие необратимо.")
 
