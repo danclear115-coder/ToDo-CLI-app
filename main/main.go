@@ -10,6 +10,10 @@ func main() {
 
 	database.InitDB()
 
+	if !taskFunc.RequireAuth() {
+		return
+	}
+	
 	uiFunc.PrintMenu()
 
 	for {	
