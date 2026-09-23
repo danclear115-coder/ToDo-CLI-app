@@ -6,6 +6,7 @@ import (
 )
 
 func CompleteTask() {
+	
 	width := BoxTop("ПЕРЕКЛЮЧЕНИЕ СТАТУСА", Green)
 
 	taskId, ok := AskID(width, Green)

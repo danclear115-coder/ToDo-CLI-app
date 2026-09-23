@@ -11,5 +11,5 @@ func GetUncompletedTasks() {
 		fmt.Printf("%s[!] Ошибка БД: %v%s\n\n", Red, err, Reset)
 		return
 	}
-	renderTaskList(tasks, "АКТИВНЫЕ ЗАДАЧИ", "Незавершённых задач нет — всё сделано!")
+	renderTaskList(tasks, "АКТИВНЫЕ ЗАДАЧИ", "Незавершенных задач нет")
 }

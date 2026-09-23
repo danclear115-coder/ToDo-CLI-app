@@ -12,10 +12,18 @@ import (
 var stdin = bufio.NewReader(os.Stdin)
 
 func ReadLine(prompt string) string {
-	return ReadLineWithDefault(prompt, "")
+	return readLineInternal(prompt, "", false)
 }
 
 func ReadLineWithDefault(prompt, initial string) string {
+	return readLineInternal(prompt, initial, false)
+}
+
+func ReadPassword(prompt string) string {
+	return readLineInternal(prompt, "", true)
+}
+
+func readLineInternal(prompt, initial string, mask bool) string {
 	fd := int(os.Stdin.Fd())
 
 	if !term.IsTerminal(fd) {
@@ -42,7 +50,11 @@ func ReadLineWithDefault(prompt, initial string) string {
 	pos := len(buf)
 
 	redraw := func() {
-		fmt.Printf("\r\033[K%s%s", prompt, string(buf))
+		display := string(buf)
+		if mask {
+			display = strings.Repeat("*", len(buf))
+		}
+		fmt.Printf("\r\033[K%s%s", prompt, display)
 		if back := len(buf) - pos; back > 0 {
 			fmt.Printf("\033[%dD", back)
 		}
