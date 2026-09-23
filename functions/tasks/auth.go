@@ -15,6 +15,7 @@ func RequireAuth() bool {
 }
 
 func setupPassword() bool {
+	
 	width := BoxTop("ПЕРВЫЙ ЗАПУСК — ЗАДАЙТЕ ПАРОЛЬ", Green)
 	BoxLine(width, Green, Gray, "Этот пароль будет запрашиваться при каждом входе в приложение.")
 

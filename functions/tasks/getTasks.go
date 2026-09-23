@@ -2,11 +2,11 @@ package taskFunc
 
 import (
 	"fmt"
-	database "servInTerm/createDb"
+	DB "servInTerm/createDb"
 )
 
 func GetTasks() {
-	tasks, err := database.GetAllTasks()
+	tasks, err := DB.GetAllTasks()
 	if err != nil {
 		fmt.Printf("%s[!] Ошибка БД: %v%s\n\n", Red, err, Reset)
 		return

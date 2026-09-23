@@ -2,11 +2,11 @@ package taskFunc
 
 import (
 	"fmt"
-	database "servInTerm/createDb"
+	DB "servInTerm/createDb"
 )
 
 func CompleteTask() {
-	
+
 	width := BoxTop("ПЕРЕКЛЮЧЕНИЕ СТАТУСА", Green)
 
 	taskId, ok := AskID(width, Green)
@@ -14,7 +14,7 @@ func CompleteTask() {
 		return
 	}
 
-	if err := database.CompleteTask(taskId); err != nil {
+	if err := DB.CompleteTask(taskId); err != nil {
 		BoxLine(width, Green, Red, fmt.Sprintf("Не удалось изменить статус: %v", err))
 		BoxBottom(width, Green)
 		return

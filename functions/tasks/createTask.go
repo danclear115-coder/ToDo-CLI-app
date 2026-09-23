@@ -2,7 +2,7 @@ package taskFunc
 
 import (
 	"fmt"
-	database "servInTerm/createDb"
+	DB "servInTerm/createDb"
 )
 
 func CreateTask() {
@@ -12,7 +12,7 @@ func CreateTask() {
 	content := ReadLine(BoxPrompt(Green, "Описание: "))
 	priority := ReadLine(BoxPrompt(Green, "Приоритет (High/Medium/Low): "))
 
-	if err := database.CreateTask(title, content, priority); err != nil {
+	if err := DB.CreateTask(title, content, priority); err != nil {
 		BoxLine(width, Green, Red, fmt.Sprintf("Не удалось создать: %v", err))
 		BoxBottom(width, Green)
 		return

@@ -2,7 +2,7 @@ package taskFunc
 
 import (
 	"fmt"
-	database "servInTerm/createDb"
+	DB "servInTerm/createDb"
 	"strings"
 )
 
@@ -22,7 +22,7 @@ func DeleteTask() {
 		return
 	}
 
-	if err := database.DeleteTask(taskId); err != nil {
+	if err := DB.DeleteTask(taskId); err != nil {
 		BoxLine(width, Red, Red, fmt.Sprintf("Удаление отклонено: %v", err))
 		BoxBottom(width, Red)
 		return

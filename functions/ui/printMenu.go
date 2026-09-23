@@ -2,8 +2,8 @@ package uiFunc
 
 import (
 	"fmt"
-	taskFunc "servInTerm/functions/tasks"
 	"strings"
+	taskFunc "servInTerm/functions/tasks"
 )
 
 func menuItem(width int, key, text string) {
