@@ -2,7 +2,7 @@ package taskFunc
 
 import (
 	"fmt"
-	database "servInTerm/createDb"
+	DB "servInTerm/createDb"
 )
 
 func ChangeTask() {
@@ -14,7 +14,7 @@ func ChangeTask() {
 		return
 	}
 
-	oldTask, err := database.GetTasksOldParams(taskId)
+	oldTask, err := DB.GetTasksOldParams(taskId)
 	if err != nil {
 		BoxLine(width, Cyan, Red, fmt.Sprintf("Задача с ID %d не найдена.", taskId))
 		BoxBottom(width, Cyan)
@@ -25,7 +25,7 @@ func ChangeTask() {
 	content := ReadLineWithDefault(BoxPrompt(Cyan, "Новое описание: "), oldTask.Content)
 	priority := ReadLineWithDefault(BoxPrompt(Cyan, "Новый приоритет: "), oldTask.Priority)
 
-	if err := database.ChangeTask(title, content, priority, taskId); err != nil {
+	if err := DB.ChangeTask(title, content, priority, taskId); err != nil {
 		BoxLine(width, Cyan, Red, fmt.Sprintf("Обновление отклонено: %v", err))
 		BoxBottom(width, Cyan)
 		return

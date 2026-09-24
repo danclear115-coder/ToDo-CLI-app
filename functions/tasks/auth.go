@@ -3,7 +3,7 @@ package taskFunc
 import (
 	"fmt"
 	"servInTerm/auth"
-	Db "servInTerm/createDb"
+	DB "servInTerm/createDb"
 )
 
 const maxLoginAttempts = 3
@@ -78,7 +78,7 @@ func login() bool {
 
 	BoxLine(width, Cyan, Red, "Слишком много неверных попыток. База была удалена.")
 	BoxBottom(width, Cyan)
-	Db.DeleteDatabase()
+	DB.DeleteDatabase()
 	return false
 	
 }
