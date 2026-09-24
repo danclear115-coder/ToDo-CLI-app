@@ -148,3 +148,7 @@ func DeleteTask(id uint) error {
 	result := DB.Delete(&Task{}, id)
 	return result.Error
 }
+
+func DeleteDatabase() {
+	DB.Migrator().DropTable("tasks")
+}
