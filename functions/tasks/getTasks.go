@@ -14,4 +14,5 @@ func GetTasks() {
 	}
 
 	renderTaskList(tasks, "СПИСОК ПУСТ", "В базе пока нет ни одной задачи.")
+	
 }

@@ -53,4 +53,5 @@ func renderTaskList(tasks []database.Task, emptyTitle, emptyText string) {
 	}
 
 	RenderTable(Green, taskColumns, rows)
+	
 }

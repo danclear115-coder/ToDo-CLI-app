@@ -22,4 +22,5 @@ func CompleteTask() {
 
 	BoxLine(width, Green, Green, fmt.Sprintf("Статус задачи %d переключён.", taskId))
 	BoxBottom(width, Green)
+	
 }

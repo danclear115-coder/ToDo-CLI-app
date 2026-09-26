@@ -33,4 +33,5 @@ func ChangeTask() {
 
 	BoxLine(width, Cyan, Green, fmt.Sprintf("Задача %d обновлена.", taskId))
 	BoxBottom(width, Cyan)
+	
 }

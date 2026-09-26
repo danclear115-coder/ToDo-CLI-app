@@ -14,4 +14,5 @@ func GetUncompletedTasks() {
 	}
 	
 	renderTaskList(tasks, "АКТИВНЫЕ ЗАДАЧИ", "Незавершенных задач нет")
+	
 }

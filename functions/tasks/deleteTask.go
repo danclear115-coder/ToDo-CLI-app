@@ -31,4 +31,5 @@ func DeleteTask() {
 
 	BoxLine(width, Red, Green, fmt.Sprintf("Задача %d удалена.", taskId))
 	BoxBottom(width, Red)
+	
 }

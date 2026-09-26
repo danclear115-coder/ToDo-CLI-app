@@ -172,14 +172,18 @@ func columnWidths(cols []Column) []int {
 }
 
 func gridLine(left, mid, right string, widths []int) string {
+
 	parts := make([]string, len(widths))
 	for i, w := range widths {
 		parts[i] = strings.Repeat("─", w+2)
 	}
+
 	return left + strings.Join(parts, mid) + right
+
 }
 
 func printGridRow(borderColor string, cells []Cell, widths []int) {
+
 	wrapped := make([][]string, len(cells))
 	maxLines := 1
 	for i, cell := range cells {
@@ -204,6 +208,7 @@ func printGridRow(borderColor string, cells []Cell, widths []int) {
 }
 
 func RenderTable(borderColor string, cols []Column, rows [][]Cell) {
+
 	widths := columnWidths(cols)
 
 	fmt.Println()
@@ -213,6 +218,7 @@ func RenderTable(borderColor string, cols []Column, rows [][]Cell) {
 	for i, c := range cols {
 		headerCells[i] = Cell{Text: c.Header, Color: Bold + borderColor}
 	}
+
 	printGridRow(borderColor, headerCells, widths)
 	fmt.Println(borderColor + gridLine("├", "┼", "┤", widths) + Reset)
 
@@ -228,14 +234,17 @@ func RenderTable(borderColor string, cols []Column, rows [][]Cell) {
 }
 
 func BoxTop(title, color string) int {
+	
 	w := FormWidth()
 	t := "─ [ " + title + " ] "
 	fill := w - len([]rune(t))
 	if fill < 0 {
 		fill = 0
 	}
+	
 	fmt.Printf("\n%s┌%s%s┐%s\n", color, t, strings.Repeat("─", fill), Reset)
 	return w
+
 }
 
 func BoxBottom(width int, color string) {
@@ -243,6 +252,7 @@ func BoxBottom(width int, color string) {
 }
 
 func BoxLine(width int, borderColor, textColor, text string) {
+
 	inner := width - 2
 	for _, line := range WrapText(text, inner) {
 		fmt.Printf("%s│%s %s%s%s %s│%s\n",
@@ -250,6 +260,7 @@ func BoxLine(width int, borderColor, textColor, text string) {
 			textColor, Pad(line, inner), Reset,
 			borderColor, Reset)
 	}
+
 }
 
 func BoxPrompt(borderColor, label string) string {
@@ -267,4 +278,5 @@ func AskID(width int, color string) (uint, bool) {
 	}
 
 	return uint(val64), true
+	
 }

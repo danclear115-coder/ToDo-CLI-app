@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-
 	"golang.org/x/term"
 )
 
@@ -45,6 +44,7 @@ func readLineInternal(prompt, initial string, mask bool) string {
 		}
 		return initial
 	}
+
 	defer term.Restore(fd, oldState)
 
 	buf := []rune(initial)
@@ -60,6 +60,7 @@ func readLineInternal(prompt, initial string, mask bool) string {
 			fmt.Printf("\033[%dD", back)
 		}
 	}
+
 	redraw()
 
 	for {

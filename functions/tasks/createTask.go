@@ -21,4 +21,5 @@ func CreateTask() {
 
 	BoxLine(width, Green, Green, "Задача создана.")
 	BoxBottom(width, Green)
+	
 }

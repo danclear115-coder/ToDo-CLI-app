@@ -79,6 +79,7 @@ func login() bool {
 	BoxLine(width, Cyan, Red, "Слишком много неверных попыток. База была удалена.")
 	BoxBottom(width, Cyan)
 	DB.DeleteDatabase()
+	
 	return false
 	
 }
