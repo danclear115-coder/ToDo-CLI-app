@@ -13,6 +13,7 @@ func menuItem(width int, key, text string) {
 		taskFunc.Cyan, taskFunc.Reset,
 		taskFunc.Green, taskFunc.Pad(content, width-2), taskFunc.Reset,
 		taskFunc.Cyan, taskFunc.Reset)
+		
 }
 
 func PrintMenu() {
@@ -29,4 +30,5 @@ func PrintMenu() {
 	menuItem(w, "6", "Показать выполненные задачи")
 	menuItem(w, "7", "Выход")
 	fmt.Printf("%s└%s┘%s\n", taskFunc.Cyan, strings.Repeat("─", w), taskFunc.Reset)
+
 }
